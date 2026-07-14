@@ -31,14 +31,14 @@ while True:
             guess = int(input("What is the number?"))
             if guess < 1 or guess > maximum:
                 print("Follow the rule of the game!")
-                continue
+                #continue
             attempts +=1
             if guess > secret_number:
-                print("too high")
+                print("too high, try again!")
             elif guess < secret_number:
-                print("too low")
+                print("too low, try again!")
             else:
-                print(f"correct! You got it in {attempts} attempts")
+                print(f"correct! You guessed the number in {attempts} attempts")
                 break
         except ValueError:
             print("Please enter a valid number")
