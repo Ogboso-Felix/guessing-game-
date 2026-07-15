@@ -1,13 +1,7 @@
-#Where should attemp_limit be set?
-#Where should I increase attempts?
-#Where should I check if the player has run out of attempt?
-#After a valid guess, Python should think:
-#Increase attempts....Did the player guess correctly?.....Yes Congratulations! End game.
-#No Continue checking...."Has the player reached the attempt limit?" Yes Game Over. 
-# Reveal the number. End game. No, Give a hint (Too high/Too low)
-#Continue playing. This order ensures that 
-# a correct guess on the final allowed attempt is still a win.
+
 import random
+yes_answers = ["yes", "y"]
+no_answers = ["no", "n"]
 while True:
     print("=" * 40)
     print("WELCOME TO MY NUMBER GUESSING GAME")
@@ -47,8 +41,8 @@ while True:
             attempts +=1
             if guess ==secret_number:
                 print("Congratulations!")
-                if attempts ==1:
-                    print (f"You guessedthe number in {attempts} attempt")
+                if attempts == 1:
+                    print (f"You guessed the number in {attempts} attempt")
                 else:
                     print(f"You guessed the number in {attempts} attempts")
                     break
@@ -68,4 +62,16 @@ while True:
                 break
         except ValueError:
             print("Please enter a valid number")
-            
+            #Ask ↓  Validate  ↓ Invalid? ↓ Tell the user ↓ Ask again
+    while True:
+            print("Would you like to play the game again \n Y/N")
+            response = input("Enter your choice: ")
+            response = response.lower()
+            if response in yes_answers:
+                break
+            elif response in no_answers:
+                print("Goodbye!")
+                exit()
+            else:
+                print("Invalid choice. Please enter Y or N")
+                continue
